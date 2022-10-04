@@ -29,11 +29,20 @@ function onGalleryItemsClick(event) {
     event.preventDefault();
   if (event.target.classList.contains('gallery__image')) {
     const instance = basicLightbox.create(`
-    <img src="${event.target.dataset.source}" width="800" height="600"/>
-    
-`);
+    <img src="${event.target.dataset.source}" width="800" height="600"/>`,
+      {
+        onClose: (instance) => {
+          window.removeEventListener('keydown', onEscPress);
+
+    }});
     instance.show();
- }
+    window.addEventListener('keydown', onEscPress);
+      function onEscPress(event) {
+        if (event.code === 'Escape') {
+          instance.close();
+        }
+      }
+    }
 }
 
 
