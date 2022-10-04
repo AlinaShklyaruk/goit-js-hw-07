@@ -12,16 +12,6 @@ function createGalleryItems(items) {
 </a>`).join('');
 }
 
-//galleryEl.addEventListener('click', onGalleryItemClick);
-//function onGalleryItemClick(event) {
-   // event.preventDefault();
-   // if (event.target.classList.contains('.gallery__image')) {
-    //    new SimpleLightbox('.some-element a', { /* options */ });
-  //  }
-//}
-console.log(galleryEl);
-
-
 new SimpleLightbox('.gallery a', { 
     captionsData: 'alt',
     captions: true,
