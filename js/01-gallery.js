@@ -7,35 +7,35 @@ const listItemsMarkup = createGalleryItemsMarkup(galleryItems);
 
 galleryEl.innerHTML = listItemsMarkup;
 
+galleryEl.addEventListener('click', onGalleryItemsClick);
+
 function createGalleryItemsMarkup(items) {
-    return items.map(item => 
+    return items.map(({preview, original, description}) => 
         `<div class="gallery__item">
-  <a class="gallery__link" href="${item.original}">
+  <a class="gallery__link" href="${original}">
     <img
       class="gallery__image"
-      src="${item.preview}"
-      data-source="${item.original}"
-      alt="${item.description}"
+      src="${preview}"
+      data-source="${original}"
+      alt="${description}"
     />
   </a>
 </div>`
     ).join('');
-};
+}
 
-galleryEl.addEventListener('click', onGalleryItemsClick);
 
 function onGalleryItemsClick(event) {
     event.preventDefault();
   if (event.target.classList.contains('gallery__image')) {
     const instance = basicLightbox.create(`
-    <div class="modal">
-        <img src="${event.target.dataset.source}" width="800" height="600"/>
-    </div>
+    <img src="${event.target.dataset.source}" width="800" height="600"/>
+    
 `);
     instance.show();
-    
  }
+}
 
-  }
+
 
   
