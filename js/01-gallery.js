@@ -33,10 +33,9 @@ function onGalleryItemsClick(event) {
     </div>
 `);
     instance.show();
-
+    
  }
 
+  }
 
-
- // console.log(event.target.src);
-}
+  
